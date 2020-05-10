@@ -24,7 +24,7 @@ edged = cv2.Canny(gray, 170, 200)
 cv2.imshow("4 - Canny Edges", edged)
 
 # Find contours based on Edges
-(new, cnts, _) = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+(cnts, hierarchy) = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
 cnts=sorted(cnts, key = cv2.contourArea, reverse = True)[:30] #sort contours based on their area keeping minimum required area as '30' (anything smaller than this will not be considered)
 NumberPlateCnt = None #we currently have no Number plate contour
 
